@@ -1,0 +1,15 @@
+const int voltagePin = A0; // Pin where voltage is measured
+const float referenceVoltage = 5.0; // Reference voltage for Arduino
+
+void setup() {
+  Serial.begin(9600); // Start serial communication
+}
+
+void loop() {
+  int sensorValue = analogRead(voltagePin); // Read voltage from A0 pin
+  float voltage = (sensorValue * referenceVoltage) / 1023.0; // Convert to actual voltage
+
+  Serial.println(voltage); // Send voltage value to serial monitor
+
+  delay(100); // Delay to prevent flooding the serial monitor
+}
